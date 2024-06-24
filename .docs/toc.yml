@@ -1,0 +1,4 @@
+- name: Proxy
+  href: BlockadeLabs-SDK-DotNet-Proxy/Readme.html
+- name: API
+  href: api/BlockadeLabsSDK.OpenAIClient.html

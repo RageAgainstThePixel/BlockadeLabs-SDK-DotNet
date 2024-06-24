@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <SignAssembly>false</SignAssembly>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.15" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+    <PackageReference Include="coverlet.collector" Version="1.0.1" />
+    <ProjectReference Include="..\BlockadeLabs-SDK-DotNet\BlockadeLabs-SDK-DotNet.csproj" />
+    <ProjectReference Include="..\BlockadeLabs-SDK-DotNet-Tests-Proxy\BlockadeLabs-SDK-DotNet-Tests-Proxy.csproj" />
+  </ItemGroup>
+</Project>
