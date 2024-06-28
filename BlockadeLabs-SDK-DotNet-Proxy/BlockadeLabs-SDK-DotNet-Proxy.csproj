@@ -28,7 +28,7 @@ Version 1.0.0
     </ReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <None Update="..\README.md">
+    <None Update="README.md">
       <Pack>true</Pack>
       <PackagePath>\</PackagePath>
     </None>
