@@ -57,7 +57,7 @@ namespace BlockadeLabsSDK
         }
 
         /// <summary>
-        /// Attempts to load api keys from environment variables, as "ELEVEN_LABS_API_KEY"
+        /// Attempts to load api keys from environment variables, as "BLOCKADELABS_API_KEY"
         /// </summary>
         /// <returns>
         /// Returns the loaded <see cref="BlockadeLabsAuthentication"/> any api keys were found,

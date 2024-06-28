@@ -79,8 +79,12 @@ namespace BlockadeLabsSDK
         internal static JsonSerializerOptions JsonSerializationOptions { get; } = new()
         {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-            Converters = { new JsonStringEnumConverterFactory() },
-            ReferenceHandler = ReferenceHandler.IgnoreCycles
+            Converters =
+            {
+                new JsonStringEnumConverterFactory(),
+            },
+            NumberHandling = JsonNumberHandling.AllowReadingFromString,
+            ReferenceHandler = ReferenceHandler.IgnoreCycles,
         };
 
         /// <summary>
@@ -112,6 +116,7 @@ namespace BlockadeLabsSDK
             }
 
             client.DefaultRequestHeaders.Add("User-Agent", "BlockadeLabs-SDK-DotNet");
+            client.DefaultRequestHeaders.Add("x-api-key", BlockadeLabsAuthentication.ApiKey);
             return client;
         }
     }

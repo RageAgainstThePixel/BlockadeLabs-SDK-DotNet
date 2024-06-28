@@ -31,7 +31,7 @@ namespace BlockadeLabsSDK.Tests
             var auth = new BlockadeLabsAuthentication(TestUserToken);
             HttpClient.Timeout = TimeSpan.FromMinutes(3);
 
-            BlockadeLabsClient = new BlockadeLabsClient(auth, settings)
+            BlockadeLabsClient = new BlockadeLabsClient(auth, settings, HttpClient)
             {
                 EnableDebug = true
             };

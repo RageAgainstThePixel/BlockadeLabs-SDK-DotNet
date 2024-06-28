@@ -40,14 +40,17 @@ namespace BlockadeLabsSDK
 
         [JsonInclude]
         [JsonPropertyName("premium")]
+        [JsonConverter(typeof(BoolConverter))]
         public bool Premium { get; private set; }
 
         [JsonInclude]
         [JsonPropertyName("new")]
+        [JsonConverter(typeof(BoolConverter))]
         public bool New { get; private set; }
 
         [JsonInclude]
         [JsonPropertyName("experimental")]
+        [JsonConverter(typeof(BoolConverter))]
         public bool Experimental { get; private set; }
 
         [JsonInclude]
