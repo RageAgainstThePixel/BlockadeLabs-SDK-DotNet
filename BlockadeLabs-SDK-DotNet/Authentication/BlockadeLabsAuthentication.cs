@@ -36,7 +36,7 @@ namespace BlockadeLabsSDK
         /// <summary>
         /// The default authentication to use when no other auth is specified.
         /// This can be set manually, or automatically loaded via environment variables or a config file.
-        /// <seealso cref="LoadFromEnv"/><seealso cref="LoadFromDirectory"/>
+        /// <seealso cref="LoadFromEnvironment"/><seealso cref="LoadFromDirectory"/>
         /// </summary>
         public static BlockadeLabsAuthentication Default
         {
@@ -49,7 +49,7 @@ namespace BlockadeLabsSDK
 
                 var auth = LoadFromDirectory() ??
                            LoadFromDirectory(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)) ??
-                           LoadFromEnv();
+                           LoadFromEnvironment();
                 cachedDefault = auth;
                 return auth;
             }
@@ -63,7 +63,7 @@ namespace BlockadeLabsSDK
         /// Returns the loaded <see cref="BlockadeLabsAuthentication"/> any api keys were found,
         /// or <see langword="null"/> if there were no matching environment vars.
         /// </returns>
-        public static BlockadeLabsAuthentication LoadFromEnv()
+        public static BlockadeLabsAuthentication LoadFromEnvironment()
         {
             var apiKey = Environment.GetEnvironmentVariable(BLOCKADELABS_API_KEY);
 

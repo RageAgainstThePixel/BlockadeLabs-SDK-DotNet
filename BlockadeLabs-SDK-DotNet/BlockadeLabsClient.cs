@@ -29,7 +29,7 @@ namespace BlockadeLabsSDK
         /// This internal HttpClient is disposed of when BlockadeLabsClient is disposed of.
         /// If you provide an external HttpClient instance to BlockadeLabsClient, you are responsible for managing its disposal.
         /// </remarks>
-        public BlockadeLabsClient(BlockadeLabsAuthentication authentication, BlockadeLabsSettings settings, HttpClient httpClient = null)
+        public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsSettings settings = null, HttpClient httpClient = null)
         {
             BlockadeLabsAuthentication = authentication ?? BlockadeLabsAuthentication.Default;
             BlockadeLabsSettings = settings ?? BlockadeLabsSettings.Default;
@@ -93,7 +93,7 @@ namespace BlockadeLabsSDK
         /// <summary>
         /// Enables or disables debugging for all endpoints.
         /// </summary>
-        public bool EnableDebug { get; }
+        public bool EnableDebug { get; set; }
 
         public SkyboxEndpoint SkyboxEndpoint { get; }
 

@@ -175,12 +175,12 @@ namespace BlockadeLabsSDK
 
             if (exportOptions != null)
             {
-                exportTasks.AddRange(exportOptions.Select(exportOption => ExportSkyboxAsync(skyboxInfo, exportOption, pollingInterval, cancellationToken)));
+                exportTasks.AddRange(exportOptions.Select(exportOption => ExportSkyboxAsync(skyboxInfo, exportOption, pollingInterval, null, cancellationToken)));
             }
             else
             {
-                exportTasks.Add(ExportSkyboxAsync(skyboxInfo, DefaultExportOptions.Equirectangular_PNG, pollingInterval, cancellationToken));
-                exportTasks.Add(ExportSkyboxAsync(skyboxInfo, DefaultExportOptions.DepthMap_PNG, pollingInterval, cancellationToken));
+                exportTasks.Add(ExportSkyboxAsync(skyboxInfo, DefaultExportOptions.Equirectangular_PNG, pollingInterval, null, cancellationToken));
+                exportTasks.Add(ExportSkyboxAsync(skyboxInfo, DefaultExportOptions.DepthMap_PNG, pollingInterval, null, cancellationToken));
             }
 
             await Task.WhenAll(exportTasks).ConfigureAwait(false);

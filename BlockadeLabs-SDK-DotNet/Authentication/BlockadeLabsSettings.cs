@@ -43,7 +43,9 @@ namespace BlockadeLabsSDK
 
         public BlockadeLabsSettingsInfo Info { get; }
 
-        public string BaseRequestUrlFormat => Info.BaseRequestUrlFormat;
+        internal string BaseRequest => Info.BaseRequest;
+
+        internal string BaseRequestUrlFormat => Info.BaseRequestUrlFormat;
 
         private readonly Dictionary<string, string> defaultQueryParameters = new();
 
