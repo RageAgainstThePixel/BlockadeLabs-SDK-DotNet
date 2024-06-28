@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
+using System.Collections.Generic;
 
 namespace BlockadeLabsSDK.Tests
 {
@@ -14,7 +15,7 @@ namespace BlockadeLabsSDK.Tests
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
 
-            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model2);
             Assert.IsNotNull(skyboxStyles);
 
             foreach (var skyboxStyle in skyboxStyles)
@@ -104,7 +105,7 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_05_CancelPendingGeneration()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model2);
             var request = new SkyboxRequest(skyboxStyles.First(), "mars", enhancePrompt: true);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.5));
 
@@ -122,8 +123,23 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_06_CancelAllPendingGenerations()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var result = await BlockadeLabsClient.SkyboxEndpoint.CancelAllPendingSkyboxGenerationsAsync();
-            Console.WriteLine(result ? "All pending generations successfully cancelled" : "No pending generations");
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
+            var request = new SkyboxRequest(skyboxStyles.First(), "mars", enhancePrompt: true);
+
+            var progress = new Progress<SkyboxInfo>(async progress =>
+            {
+                var result = await BlockadeLabsClient.SkyboxEndpoint.CancelAllPendingSkyboxGenerationsAsync();
+                Console.WriteLine(result ? "All pending generations successfully cancelled" : "No pending generations");
+            });
+
+            try
+            {
+                await BlockadeLabsClient.SkyboxEndpoint.GenerateSkyboxAsync(request, progressCallback: progress, pollingInterval: 500);
+            }
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine("Operation successfully cancelled");
+            }
         }
 
         [Test]

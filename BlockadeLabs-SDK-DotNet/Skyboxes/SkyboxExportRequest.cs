@@ -1,5 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using System;
+﻿using System;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace BlockadeLabsSDK
 {
@@ -53,5 +54,9 @@ namespace BlockadeLabsSDK
         [JsonInclude]
         [JsonPropertyName("created_at")]
         public DateTime CreatedAt { get; private set; }
+
+        public override string ToString() => JsonSerializer.Serialize(this, BlockadeLabsClient.JsonSerializationOptions);
+
+        public static implicit operator string(SkyboxExportRequest request) => request?.ToString();
     }
 }
