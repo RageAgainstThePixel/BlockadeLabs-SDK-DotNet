@@ -1,10 +1,9 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Threading;
 using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BlockadeLabsSDK.Tests
 {
@@ -128,6 +127,7 @@ namespace BlockadeLabsSDK.Tests
 
             var progress = new Progress<SkyboxInfo>(async progress =>
             {
+                Console.WriteLine(progress);
                 var result = await BlockadeLabsClient.SkyboxEndpoint.CancelAllPendingSkyboxGenerationsAsync();
                 Console.WriteLine(result ? "All pending generations successfully cancelled" : "No pending generations");
             });
