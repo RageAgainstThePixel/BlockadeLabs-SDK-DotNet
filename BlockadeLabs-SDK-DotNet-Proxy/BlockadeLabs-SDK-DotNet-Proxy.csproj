@@ -34,6 +34,12 @@ Version 1.0.0
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\BlockadeLabs-SDK-DotNet\Assets\BlockadeLabs-SDK-DotNet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BlockadeLabs-SDK-DotNet\BlockadeLabs-SDK-DotNet.csproj" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
