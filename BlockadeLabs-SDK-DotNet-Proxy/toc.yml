@@ -1,4 +1,4 @@
 - name: Proxy
   href: Readme.md
 - name: API
-  href: ../api/BlockadeLabsSDK.OpenAIClient.html
+  href: ../api/BlockadeLabsSDK.BlockadeLabsClient.html

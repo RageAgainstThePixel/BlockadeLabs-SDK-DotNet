@@ -49,7 +49,7 @@ namespace BlockadeLabsSDK.Proxy
         /// <param name="client"><see cref="BlockadeLabsClient"/>.</param>
         /// <param name="authenticationFilter"><see cref="IAuthenticationFilter"/>.</param>
         /// <param name="routePrefix">Optional, custom route prefix. i.e. '/blockadelabs'.</param>
-        public static void MapOpenAIEndpoints(this IEndpointRouteBuilder endpoints, BlockadeLabsClient client, IAuthenticationFilter authenticationFilter, string routePrefix = "")
+        public static void MapEndpoints(this IEndpointRouteBuilder endpoints, BlockadeLabsClient client, IAuthenticationFilter authenticationFilter, string routePrefix = "")
         {
             endpoints.Map($"{routePrefix}{client.BlockadeLabsSettings.BaseRequest}{{**endpoint}}", HandleRequest);
 
