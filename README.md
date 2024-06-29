@@ -24,7 +24,9 @@ Install package [`BlockadeLabs-SDK-DotNet` from Nuget](https://www.nuget.org/pac
 Install-Package BlockadeLabs-SDK-DotNet
 ```
 
-## Documentation
+## [Documentation](https://rageagainstthepixel.github.io/BlockadeLabs-SDK-DotNet)
+
+Docs website: <https://rageagainstthepixel.github.io/BlockadeLabs-SDK-DotNet>
 
 ### Table of Contents
 

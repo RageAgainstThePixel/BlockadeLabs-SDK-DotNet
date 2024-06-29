@@ -43,12 +43,12 @@ namespace BlockadeLabsSDK.Proxy
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/health", HealthEndpoint);
-                endpoints.MapOpenAIEndpoints(_client, _authenticationFilter);
+                endpoints.MapEndpoints(_client, _authenticationFilter);
             });
         }
 
         /// <summary>
-        /// Creates a new <see cref="IHost"/> that acts as a proxy web api for OpenAI.
+        /// Creates a new <see cref="IHost"/> that acts as a proxy web api for BlockadeLabs.
         /// </summary>
         /// <typeparam name="T"><see cref="IAuthenticationFilter"/> type to use to validate your custom issued tokens.</typeparam>
         /// <param name="args">Startup args.</param>
@@ -67,7 +67,7 @@ namespace BlockadeLabsSDK.Proxy
                 }).Build();
 
         /// <summary>
-        /// Creates a new <see cref="WebApplication"/> that acts as a proxy web api for OpenAI.
+        /// Creates a new <see cref="WebApplication"/> that acts as a proxy web api for BlockadeLabs.
         /// </summary>
         /// <typeparam name="T"><see cref="IAuthenticationFilter"/> type to use to validate your custom issued tokens.</typeparam>
         /// <param name="args">Startup args.</param>

@@ -17,12 +17,15 @@
     <PackageTags>AI, Skybox, BlockadeLabs, api-proxy, proxy, gateway</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <PackageIcon>BlockadeLabs-SDK-DotNet-Icon.png</PackageIcon>
     <DelaySign>true</DelaySign>
     <SignAssembly>false</SignAssembly>
     <IncludeSymbols>true</IncludeSymbols>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <ReleaseNotes>
+Version 1.0.1
+- Updated package icon and docs
 Version 1.0.0
 - Initial release of BlockadeLabs-SDK-DotNet-Proxy
     </ReleaseNotes>
