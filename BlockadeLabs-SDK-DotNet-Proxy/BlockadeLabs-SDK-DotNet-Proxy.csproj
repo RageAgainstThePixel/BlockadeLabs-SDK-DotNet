@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <Authors>BlockadeLabs</Authors>
+    <Company>BlockadeLabs</Company>
+    <Title>BlockadeLabs-SDK-DotNet-Proxy</Title>
+    <Product>BlockadeLabs-SDK-DotNet-Proxy</Product>
+    <PackageId>BlockadeLabs-SDK-DotNet-Proxy</PackageId>
+    <RootNamespace>BlockadeLabsSDK.Proxy</RootNamespace>
+    <Description>A simple Proxy API gateway for BlockadeLabs-SDK-DotNet to make authenticated requests from a front end application without exposing your API key.</Description>
+    <Copyright>2024</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageProjectUrl>https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet</RepositoryUrl>
+    <PackageTags>AI, Skybox, BlockadeLabs, api-proxy, proxy, gateway</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
+    <DelaySign>true</DelaySign>
+    <SignAssembly>false</SignAssembly>
+    <IncludeSymbols>true</IncludeSymbols>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>1.0.0</Version>
+    <ReleaseNotes>
+Version 1.0.0
+- Initial release of BlockadeLabs-SDK-DotNet-Proxy
+    </ReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\BlockadeLabs-SDK-DotNet\Assets\BlockadeLabs-SDK-DotNet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlockadeLabs-SDK-DotNet\BlockadeLabs-SDK-DotNet.csproj" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

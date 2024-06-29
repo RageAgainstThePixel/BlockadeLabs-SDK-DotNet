@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>Disable</Nullable>
+    <Authors>BlockadeLabs</Authors>
+    <Company>BlockadeLabs</Company>
+    <Title>BlockadeLabs-SDK-DotNet</Title>
+    <Product>BlockadeLabs-SDK-DotNet</Product>
+    <PackageId>BlockadeLabs-SDK-DotNet</PackageId>
+    <RootNamespace>BlockadeLabsSDK</RootNamespace>
+    <Description>A simple C# .NET client library for BlockadeLabs to use through their RESTful API.</Description>
+    <Copyright>2024</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageProjectUrl>https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet</RepositoryUrl>
+    <PackageTags>AI, Skybox, BlockadeLabs</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <DelaySign>true</DelaySign>
+    <SignAssembly>false</SignAssembly>
+    <IncludeSymbols>true</IncludeSymbols>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>1.0.0</Version>
+    <ReleaseNotes>
+Version 1.0.0
+- Initial release of BlockadeLabs-SDK-DotNet
+    </ReleaseNotes>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>true</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\BlockadeLabs-SDK-DotNet-Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

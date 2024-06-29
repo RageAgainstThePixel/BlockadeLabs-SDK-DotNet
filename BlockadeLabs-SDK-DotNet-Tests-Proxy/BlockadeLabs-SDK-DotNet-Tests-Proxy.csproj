@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>false</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+    <SignAssembly>false</SignAssembly>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>BlockadeLabsSDK.Tests.Proxy</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BlockadeLabs-SDK-DotNet-Proxy\BlockadeLabs-SDK-DotNet-Proxy.csproj" />
+  </ItemGroup>
+</Project>

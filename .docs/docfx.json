@@ -1,0 +1,65 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../BlockadeLabs-SDK-DotNet/",
+          "files": [
+            "**.csproj"
+          ],
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ]
+      },
+      {
+        "src": "../BlockadeLabs-SDK-DotNet-Proxy/",
+        "files": [
+          "/*.{md,yml}"
+        ],
+        "dest": "BlockadeLabs-SDK-DotNet-Proxy"
+      },
+      {
+        "src": "../",
+        "files": [
+          "/*.{md,yml}"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "src": "../BlockadeLabs-SDK-DotNet/Assets",
+        "files": [
+          "*.png",
+          "*.svg",
+          "*.ico"
+        ],
+        "dest" : "assets"
+      }
+    ],
+    "output": "../_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "BlockadeLabs-SDK-DotNet",
+      "_appTitle": "BlockadeLabs-SDK-DotNet",
+      "_appLogoPath": "assets/BlockadeLabs-SDK-DotNet-Icon@x1.png",
+      "_appFaviconPath": "assets/BlockadeLabs-SDK-DotNet-Icon@x1.png",
+      "_enableSearch": true,
+      "pdf": false
+    }
+  }
+}
