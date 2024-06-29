@@ -17,6 +17,7 @@
     <PackageTags>AI, Skybox, BlockadeLabs</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>Assets\BlockadeLabs-SDK-DotNet-Icon.png</PackageIcon>
     <DelaySign>true</DelaySign>
     <SignAssembly>false</SignAssembly>
     <IncludeSymbols>true</IncludeSymbols>
@@ -28,7 +29,6 @@ Version 1.0.1
 Version 1.0.0
 - Initial release of BlockadeLabs-SDK-DotNet
     </ReleaseNotes>
-    <PackageIcon>BlockadeLabs-SDK-DotNet-Icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\README.md">
