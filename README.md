@@ -34,7 +34,7 @@ Install-Package BlockadeLabs-SDK-DotNet
   - [Get Skybox Styles](#get-skybox-styles)
   - [Get Skybox Style Families](#get-skybox-style-families)
   - [Get Skybox Export Options](#get-skybox-export-options)
-  - [Generate Skybox](#generate-skybox) :construction: :warning:
+  - [Generate Skybox](#generate-skybox)
   - [Get Skybox by Id](#get-skybox)
   - [Request Skybox Export](#request-skybox-export)
   - [Delete Skybox by Id](#delete-skybox)
