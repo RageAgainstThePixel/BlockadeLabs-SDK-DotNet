@@ -370,7 +370,7 @@ namespace BlockadeLabsSDK
         /// </summary>
         /// <param name="skyboxInfo">Skybox to export.</param>
         /// <param name="exportOption">Export option to use.</param>
-        /// <param name="progressCallback">Optional, <see cref="IProgress{SkyboxInfo}"/> progress callback.</param>
+        /// <param name="progressCallback">Optional, <see cref="IProgress{SkyboxExportRequest}"/> progress callback.</param>
         /// <param name="pollingInterval">Optional, polling interval in seconds.</param>
         /// <param name="webhookUrl">Optional, specify a webhook url to specify the destination for progress updates.</param>
         /// <param name="cancellationToken">Optional, <see cref="CancellationToken"/>.</param>
