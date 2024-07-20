@@ -210,7 +210,7 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_05_CancelPendingGeneration()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model2);
             var request = new SkyboxRequest(skyboxStyles.First(), "mars", enhancePrompt: true);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.5));
 
