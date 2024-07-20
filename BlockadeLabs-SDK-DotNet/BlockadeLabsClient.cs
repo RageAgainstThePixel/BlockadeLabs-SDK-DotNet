@@ -16,9 +16,9 @@ namespace BlockadeLabsSDK
         /// or <see langword="null"/> to attempt to use the <see cref="BlockadeLabsAuthentication.Default"/>,
         /// potentially loading from environment vars or from a config file.
         /// </param>
-        /// <param name="settings">
+        /// <param name="clientSettings">
         /// The API client settings for specifying a proxy domain,
-        /// or <see langword="null"/> to attempt to use the <see cref="BlockadeLabsSettings.Default"/>,
+        /// or <see langword="null"/> to attempt to use the <see cref="BlockadeLabsClientSettings.Default"/>,
         /// potentially loading from environment vars or from a config file.
         /// </param>
         /// <param name="httpClient">A <see cref="HttpClient"/>.</param>
@@ -29,10 +29,10 @@ namespace BlockadeLabsSDK
         /// This internal HttpClient is disposed of when BlockadeLabsClient is disposed of.
         /// If you provide an external HttpClient instance to BlockadeLabsClient, you are responsible for managing its disposal.
         /// </remarks>
-        public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsSettings settings = null, HttpClient httpClient = null)
+        public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsClientSettings clientSettings = null, HttpClient httpClient = null)
         {
             BlockadeLabsAuthentication = authentication ?? BlockadeLabsAuthentication.Default;
-            BlockadeLabsSettings = settings ?? BlockadeLabsSettings.Default;
+            BlockadeLabsClientSettings = clientSettings ?? BlockadeLabsClientSettings.Default;
 
             if (BlockadeLabsAuthentication?.ApiKey is null)
             {
@@ -92,7 +92,7 @@ namespace BlockadeLabsSDK
         /// </summary>
         public BlockadeLabsAuthentication BlockadeLabsAuthentication { get; }
 
-        internal BlockadeLabsSettings BlockadeLabsSettings { get; }
+        internal BlockadeLabsClientSettings BlockadeLabsClientSettings { get; }
 
         /// <summary>
         /// Enables or disables debugging for all endpoints.

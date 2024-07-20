@@ -123,7 +123,7 @@ Follow these steps:
 1. Setup a new project using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.rest.blockadelabs](https://github.com/RageAgainstThePixel/com.rest.blockadelabs) packages.
 2. Authenticate users with your OAuth provider.
 3. After successful authentication, create a new `BlockadeLabsAuthentication` object and pass in the custom token as your apiKey.
-4. Create a new `BlockadeLabsSettings` object and specify the domain where your intermediate API is located.
+4. Create a new `BlockadeLabsClientSettings` object and specify the domain where your intermediate API is located.
 5. Pass your new `auth` and `settings` objects to the `BlockadeLabsClient` constructor when you create the client instance.
 
 Here's an example of how to set up the front end:
@@ -131,7 +131,7 @@ Here's an example of how to set up the front end:
 ```csharp
 var authToken = await LoginAsync();
 var auth = new BlockadeLabsAuthentication(authToken);
-var settings = new BlockadeLabsSettings(domain: "api.your-custom-domain.com");
+var settings = new BlockadeLabsClientSettings(domain: "api.your-custom-domain.com");
 using var api = new BlockadeLabsClient(auth, settings);
 ```
 

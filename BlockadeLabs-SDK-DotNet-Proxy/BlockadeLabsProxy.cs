@@ -52,7 +52,7 @@ namespace BlockadeLabsSDK.Proxy
         /// </summary>
         /// <typeparam name="T"><see cref="IAuthenticationFilter"/> type to use to validate your custom issued tokens.</typeparam>
         /// <param name="args">Startup args.</param>
-        /// <param name="client"><see cref="BlockadeLabsClient"/> with configured <see cref="BlockadeLabsAuthentication"/> and <see cref="BlockadeLabsSettings"/>.</param>
+        /// <param name="client"><see cref="BlockadeLabsClient"/> with configured <see cref="BlockadeLabsAuthentication"/> and <see cref="BlockadeLabsClientSettings"/>.</param>
         public static IHost CreateDefaultHost<T>(string[] args, BlockadeLabsClient client) where T : class, IAuthenticationFilter
             => Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -71,7 +71,7 @@ namespace BlockadeLabsSDK.Proxy
         /// </summary>
         /// <typeparam name="T"><see cref="IAuthenticationFilter"/> type to use to validate your custom issued tokens.</typeparam>
         /// <param name="args">Startup args.</param>
-        /// <param name="client"><see cref="BlockadeLabsClient"/> with configured <see cref="BlockadeLabsAuthentication"/> and <see cref="BlockadeLabsSettings"/>.</param>
+        /// <param name="client"><see cref="BlockadeLabsClient"/> with configured <see cref="BlockadeLabsAuthentication"/> and <see cref="BlockadeLabsClientSettings"/>.</param>
         public static WebApplication CreateWebApplication<T>(string[] args, BlockadeLabsClient client) where T : class, IAuthenticationFilter
         {
             var builder = WebApplication.CreateBuilder(args);

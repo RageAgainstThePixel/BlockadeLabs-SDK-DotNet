@@ -27,7 +27,7 @@ namespace BlockadeLabsSDK.Tests
             var webApplicationFactory = new TestProxyFactory();
             HttpClient = webApplicationFactory.CreateClient();
             var domain = $"{HttpClient.BaseAddress?.Authority}:{HttpClient.BaseAddress?.Port}";
-            var settings = new BlockadeLabsSettings(domain);
+            var settings = new BlockadeLabsClientSettings(domain);
             var auth = new BlockadeLabsAuthentication(TestUserToken);
             HttpClient.Timeout = TimeSpan.FromMinutes(3);
 
