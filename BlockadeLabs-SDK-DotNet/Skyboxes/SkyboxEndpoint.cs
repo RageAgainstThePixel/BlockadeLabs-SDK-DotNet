@@ -155,7 +155,7 @@ namespace BlockadeLabsSDK
 
                 using var imageData = new MemoryStream();
                 await skyboxRequest.ControlImage.CopyToAsync(imageData, cancellationToken).ConfigureAwait(false);
-                formData.Add(new StreamContent(imageData), "control_image", skyboxRequest.ControlImageFileName);
+                formData.Add(new ByteArrayContent(imageData.ToArray()), "control_image", skyboxRequest.ControlImageFileName);
                 skyboxRequest.Dispose();
             }
 
