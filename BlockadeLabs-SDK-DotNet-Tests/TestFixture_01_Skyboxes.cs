@@ -129,6 +129,7 @@ namespace BlockadeLabsSDK.Tests
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
             var blockadeLogoPath = Path.GetFullPath("../../../Assets/BlockadeLabs-SDK-DotNet-Icon.png");
+            Console.WriteLine(blockadeLogoPath);
             Assert.IsTrue(File.Exists(blockadeLogoPath));
             var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
             var request = new SkyboxRequest(skyboxStyles.First(), "mars", controlImagePath: blockadeLogoPath, enhancePrompt: true);

@@ -15,15 +15,15 @@ namespace BlockadeLabsSDK
     {
         private class SkyboxInfoRequest
         {
-            [JsonConstructor]
-            public SkyboxInfoRequest(
-                SkyboxInfo request = null,
-                SkyboxInfo imagine = null)
-            {
-                SkyboxInfo = request ?? imagine;
-            }
+            [JsonInclude]
+            [JsonPropertyName("request")]
+            public SkyboxInfo SkyboxRequest { get; }
 
-            public SkyboxInfo SkyboxInfo { get; }
+            [JsonInclude]
+            [JsonPropertyName("imagine")]
+            public SkyboxInfo SkyboxImagine { get; }
+
+            public SkyboxInfo SkyboxInfo => SkyboxRequest ?? SkyboxImagine;
         }
 
         private class SkyboxOperation
