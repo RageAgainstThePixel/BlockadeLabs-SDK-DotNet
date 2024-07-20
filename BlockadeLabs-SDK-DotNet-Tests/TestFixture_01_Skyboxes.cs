@@ -144,7 +144,6 @@ namespace BlockadeLabsSDK.Tests
                 Console.WriteLine($"{exportInfo.Key} -> {exportInfo.Value}");
             }
 
-
             Console.WriteLine(skyboxInfo.ToString());
 
             skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxInfoAsync(skyboxInfo);

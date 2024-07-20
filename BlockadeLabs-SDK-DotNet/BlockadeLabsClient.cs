@@ -32,7 +32,7 @@ namespace BlockadeLabsSDK
         public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsClientSettings settings = null, HttpClient httpClient = null)
         {
             BlockadeLabsAuthentication = authentication ?? BlockadeLabsAuthentication.Default;
-            BlockadeLabsClientSettings = clientSettings ?? BlockadeLabsClientSettings.Default;
+            BlockadeLabsSettings = settings ?? BlockadeLabsClientSettings.Default;
 
             if (BlockadeLabsAuthentication?.ApiKey is null)
             {
