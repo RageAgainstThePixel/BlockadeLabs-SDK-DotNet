@@ -1,11 +1,10 @@
 # BlockadeLabs-SDK-DotNet
 
-[![Discord](https://img.shields.io/discord/855294214065487932.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/xQgMW9ufN4)
 [![NuGet version (BlockadeLabs-SDK-DotNet)](https://img.shields.io/nuget/v/BlockadeLabs-SDK-DotNet.svg?label=BlockadeLabs-SDK-DotNet&logo=nuget)](https://www.nuget.org/packages/BlockadeLabs-SDK-DotNet/)
 [![NuGet version (BlockadeLabs-SDK-DotNet-Proxy)](https://img.shields.io/nuget/v/BlockadeLabs-SDK-DotNet-Proxy.svg?label=BlockadeLabs-SDK-DotNet-Proxy&logo=nuget)](https://www.nuget.org/packages/BlockadeLabs-SDK-DotNet-Proxy/)
 [![Nuget Publish](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet/actions/workflows/Publish-Nuget.yml/badge.svg)](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet/actions/workflows/Publish-Nuget.yml)
 
-A simple C# .NET client library for [BlockadeLabs] to use through their RESTful API.
+A simple C# .NET client library for [BlockadeLabs](https://skybox.blockadelabs.com) to use through their RESTful API.
 An BlockadeLabs API account subscription is required.
 
 ## Requirements
@@ -112,7 +111,7 @@ using var api = new BlockadeLabsClient(BlockadeLabsAuthentication.LoadFromEnviro
 
 [![NuGet version (BlockadeLabs-SDK-DotNet-Proxy)](https://img.shields.io/nuget/v/BlockadeLabs-SDK-DotNet-Proxy.svg?label=BlockadeLabs-SDK-DotNet-Proxy&logo=nuget)](https://www.nuget.org/packages/BlockadeLabs-SDK-DotNet-Proxy/)
 
-Using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.rest.blockadelabs](https://github.com/RageAgainstThePixel/com.rest.blockadelabs) packages directly in your front-end app may expose your API keys and other sensitive information. To mitigate this risk, it is recommended to set up an intermediate API that makes requests to BlockadeLabs on behalf of your front-end app. This library can be utilized for both front-end and intermediary host configurations, ensuring secure communication with the BlockadeLabs API.
+Using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.blockadelabs.sdk](https://Blockade-Games/BlockadeLabs-SDK-Unity) packages directly in your front-end app may expose your API keys and other sensitive information. To mitigate this risk, it is recommended to set up an intermediate API that makes requests to BlockadeLabs on behalf of your front-end app. This library can be utilized for both front-end and intermediary host configurations, ensuring secure communication with the BlockadeLabs API.
 
 #### Front End Example
 
@@ -120,7 +119,7 @@ In the front end example, you will need to securely authenticate your users usin
 
 Follow these steps:
 
-1. Setup a new project using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.rest.blockadelabs](https://github.com/RageAgainstThePixel/com.rest.blockadelabs) packages.
+1. Setup a new project using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.blockadelabs.sdk](https://Blockade-Games/BlockadeLabs-SDK-Unity) packages.
 2. Authenticate users with your OAuth provider.
 3. After successful authentication, create a new `BlockadeLabsAuthentication` object and pass in the custom token as your apiKey.
 4. Create a new `BlockadeLabsClientSettings` object and specify the domain where your intermediate API is located.
