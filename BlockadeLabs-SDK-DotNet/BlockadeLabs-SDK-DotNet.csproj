@@ -27,6 +27,10 @@
 Version 1.1.0
 - Renamed BlockadeLabsSettings to BlockadeLabsClientSettings
 - Renamed BlockadeLabsSettingsInfo to BlockadeLabsClientSettingsInfo
+- Removed SkyboxInfo implicit string operator
+- GenerateSkyboxAsync and ExportSkyboxAsync pollingInterval type changed from int? to float?
+- Fixed SkyboxStyles not being returned correctly based on choosen SkyboxModel
+- Updated UnitTests
 Version 1.0.1
 - Updated package icon and docs
 Version 1.0.0

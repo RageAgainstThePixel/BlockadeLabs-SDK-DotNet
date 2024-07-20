@@ -1,7 +1,10 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
+using NUnit.Framework.Internal;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +23,20 @@ namespace BlockadeLabsSDK.Tests
 
             foreach (var skyboxStyle in skyboxStyles)
             {
-                Console.WriteLine(skyboxStyle);
+                if (skyboxStyle.FamilyStyles != null)
+                {
+                    Console.WriteLine($"family: {skyboxStyle}");
+                    foreach (var familyStyle in skyboxStyle.FamilyStyles)
+                    {
+                        Console.WriteLine($"Style: {familyStyle}");
+                        Assert.IsTrue(familyStyle.Model == SkyboxModel.Model2);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Style: {skyboxStyle}");
+                    Assert.IsTrue(skyboxStyle.Model == SkyboxModel.Model2);
+                }
             }
 
             var skyboxFamilyStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStyleFamiliesAsync(SkyboxModel.Model3);
@@ -28,12 +44,25 @@ namespace BlockadeLabsSDK.Tests
 
             foreach (var skyboxStyle in skyboxFamilyStyles)
             {
-                Console.WriteLine(skyboxStyle);
+                if (skyboxStyle.FamilyStyles != null)
+                {
+                    Console.WriteLine($"family: {skyboxStyle}");
+                    foreach (var familyStyle in skyboxStyle.FamilyStyles)
+                    {
+                        Console.WriteLine($"Style: {familyStyle}");
+                        Assert.IsTrue(familyStyle.Model == SkyboxModel.Model3);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Style: {skyboxStyle}");
+                    Assert.IsTrue(skyboxStyle.Model == SkyboxModel.Model3);
+                }
             }
         }
 
-        [Test] // 10 min timeout
-        [Timeout(600000)]
+        [Test]
+        [Timeout(600000)] // 10 min timeout
         public async Task Test_02_GenerateSkybox()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
@@ -53,7 +82,7 @@ namespace BlockadeLabsSDK.Tests
 
             Console.WriteLine(skyboxInfo.ToString());
 
-            skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxInfoAsync(skyboxInfo);
+            skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxInfoAsync(skyboxInfo.ObfuscatedId);
             Assert.IsNotNull(skyboxInfo);
             Assert.IsNotEmpty(skyboxInfo.Exports);
 
@@ -97,6 +126,73 @@ namespace BlockadeLabsSDK.Tests
         }
 
         [Test]
+        [Timeout(600000)] // 10 min timeout
+        public async Task Test_03_GenerateSkyboxRemix()
+        {
+            Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
+            var blockadeLogoPath = Path.GetFullPath("../../../Assets/BlockadeLabs-SDK-DotNet-Icon.png");
+            Assert.IsTrue(File.Exists(blockadeLogoPath));
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
+            var request = new SkyboxRequest(skyboxStyles.First(), "mars", controlImagePath: blockadeLogoPath, enhancePrompt: true);
+            var skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GenerateSkyboxAsync(request);
+            Assert.IsNotNull(skyboxInfo);
+            Console.WriteLine($"Successfully created skybox: {skyboxInfo.Id}");
+
+            Assert.IsNotEmpty(skyboxInfo.Exports);
+
+            foreach (var exportInfo in skyboxInfo.Exports)
+            {
+                Console.WriteLine($"{exportInfo.Key} -> {exportInfo.Value}");
+            }
+
+
+            Console.WriteLine(skyboxInfo.ToString());
+
+            skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxInfoAsync(skyboxInfo);
+            Assert.IsNotNull(skyboxInfo);
+            Assert.IsNotEmpty(skyboxInfo.Exports);
+
+            foreach (var exportInfo in skyboxInfo.Exports)
+            {
+                Console.WriteLine($"{exportInfo.Key} -> {exportInfo.Value}");
+            }
+
+
+            var exportOptions = await BlockadeLabsClient.SkyboxEndpoint.GetAllSkyboxExportOptionsAsync();
+            Assert.IsNotNull(exportOptions);
+            Assert.IsNotEmpty(exportOptions);
+            var exportTasks = new List<Task>();
+
+            foreach (var exportOption in exportOptions)
+            {
+                exportTasks.Add(ExportAsync(skyboxInfo));
+
+                async Task ExportAsync(SkyboxInfo exportInfo)
+                {
+                    Console.WriteLine(exportOption.Key);
+                    Assert.IsNotNull(exportOption);
+                    var skyboxExport = await BlockadeLabsClient.SkyboxEndpoint.ExportSkyboxAsync(exportInfo, exportOption);
+                    Assert.IsNotNull(skyboxExport);
+                    Assert.IsTrue(skyboxExport.Exports.ContainsKey(exportOption.Key));
+                    skyboxExport.Exports.TryGetValue(exportOption.Key, out var exportUrl);
+                    Console.WriteLine(exportUrl);
+                }
+            }
+
+            await Task.WhenAll(exportTasks).ConfigureAwait(true);
+            skyboxInfo = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxInfoAsync(skyboxInfo);
+            Assert.IsTrue(skyboxInfo.Exports.Count == exportTasks.Count);
+
+            if (skyboxInfo.Exports.Count > 0)
+            {
+                foreach (var exportInfo in skyboxInfo.Exports)
+                {
+                    Console.WriteLine($"{exportInfo.Key} -> {exportInfo.Value}");
+                }
+            }
+        }
+
+        [Test]
         public async Task Test_04_GetHistory()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
@@ -115,7 +211,7 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_05_CancelPendingGeneration()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model2);
+            var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);
             var request = new SkyboxRequest(skyboxStyles.First(), "mars", enhancePrompt: true);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1.5));
 
@@ -138,14 +234,14 @@ namespace BlockadeLabsSDK.Tests
 
             var progress = new Progress<SkyboxInfo>(async progress =>
             {
-                Console.WriteLine(progress.ToString());
+                Console.WriteLine(progress?.Status);
                 var result = await BlockadeLabsClient.SkyboxEndpoint.CancelAllPendingSkyboxGenerationsAsync();
                 Console.WriteLine(result ? "All pending generations successfully cancelled" : "No pending generations");
             });
 
             try
             {
-                await BlockadeLabsClient.SkyboxEndpoint.GenerateSkyboxAsync(request, progressCallback: progress, pollingInterval: 500);
+                await BlockadeLabsClient.SkyboxEndpoint.GenerateSkyboxAsync(request, progressCallback: progress, pollingInterval: 0.5f);
             }
             catch (OperationCanceledException)
             {
