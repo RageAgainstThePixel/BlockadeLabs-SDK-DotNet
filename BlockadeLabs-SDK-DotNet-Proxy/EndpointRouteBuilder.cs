@@ -51,7 +51,7 @@ namespace BlockadeLabsSDK.Proxy
         /// <param name="routePrefix">Optional, custom route prefix. i.e. '/blockadelabs'.</param>
         public static void MapEndpoints(this IEndpointRouteBuilder endpoints, BlockadeLabsClient client, IAuthenticationFilter authenticationFilter, string routePrefix = "")
         {
-            endpoints.Map($"{routePrefix}{client.BlockadeLabsClientSettings.BaseRequest}{{**endpoint}}", HandleRequest);
+            endpoints.Map($"{routePrefix}{client.BlockadeLabsSettings.BaseRequest}{{**endpoint}}", HandleRequest);
 
             async Task HandleRequest(HttpContext httpContext, string endpoint)
             {
@@ -64,7 +64,7 @@ namespace BlockadeLabsSDK.Proxy
 
                     var method = new HttpMethod(httpContext.Request.Method);
                     var uri = new Uri(string.Format(
-                            client.BlockadeLabsClientSettings.BaseRequestUrlFormat,
+                            client.BlockadeLabsSettings.BaseRequestUrlFormat,
                             $"{endpoint}{httpContext.Request.QueryString}"
                         ));
                     using var request = new HttpRequestMessage(method, uri);

@@ -123,8 +123,8 @@ namespace BlockadeLabsSDK.Tests
             var auth = new BlockadeLabsAuthentication("customIssuedToken");
             var settings = new BlockadeLabsClientSettings(domain: "api.your-custom-domain.com");
             var api = new BlockadeLabsClient(auth, settings);
-            Console.WriteLine(api.BlockadeLabsClientSettings.BaseRequest);
-            Console.WriteLine(api.BlockadeLabsClientSettings.BaseRequestUrlFormat);
+            Console.WriteLine(api.BlockadeLabsSettings.BaseRequest);
+            Console.WriteLine(api.BlockadeLabsSettings.BaseRequestUrlFormat);
         }
 
         [TearDown]

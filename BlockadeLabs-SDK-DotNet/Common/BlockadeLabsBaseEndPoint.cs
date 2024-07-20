@@ -22,7 +22,7 @@ namespace BlockadeLabsSDK
         /// <param name="queryParameters">Optional, parameters to add to the endpoint.</param>
         protected string GetUrl(string endpoint = "", Dictionary<string, string> queryParameters = null)
         {
-            var result = string.Format(client.BlockadeLabsClientSettings.BaseRequestUrlFormat, $"{Root}{endpoint}");
+            var result = string.Format(client.BlockadeLabsSettings.BaseRequestUrlFormat, $"{Root}{endpoint}");
 
             if (queryParameters is { Count: not 0 })
             {
