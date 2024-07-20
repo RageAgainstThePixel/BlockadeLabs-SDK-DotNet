@@ -128,7 +128,7 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_03_GenerateSkyboxRemix()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var blockadeLogoPath = Path.GetFullPath("../../../Assets/BlockadeLabs-SDK-DotNet-Icon.png");
+            var blockadeLogoPath = Path.GetFullPath("../../../../BlockadeLabs-SDK-DotNet/Assets/BlockadeLabs-SDK-DotNet-Icon.png");
             Console.WriteLine(blockadeLogoPath);
             Assert.IsTrue(File.Exists(blockadeLogoPath));
             var skyboxStyles = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxStylesAsync(SkyboxModel.Model3);

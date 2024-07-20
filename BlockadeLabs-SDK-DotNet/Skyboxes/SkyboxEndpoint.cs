@@ -17,11 +17,11 @@ namespace BlockadeLabsSDK
         {
             [JsonInclude]
             [JsonPropertyName("request")]
-            public SkyboxInfo SkyboxRequest { get; }
+            public SkyboxInfo SkyboxRequest { get; private set; }
 
             [JsonInclude]
             [JsonPropertyName("imagine")]
-            public SkyboxInfo SkyboxImagine { get; }
+            public SkyboxInfo SkyboxImagine { get; private set; }
 
             public SkyboxInfo SkyboxInfo => SkyboxRequest ?? SkyboxImagine;
         }
