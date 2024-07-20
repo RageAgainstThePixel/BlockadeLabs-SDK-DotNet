@@ -16,7 +16,7 @@ namespace BlockadeLabsSDK
         /// or <see langword="null"/> to attempt to use the <see cref="BlockadeLabsAuthentication.Default"/>,
         /// potentially loading from environment vars or from a config file.
         /// </param>
-        /// <param name="clientSettings">
+        /// <param name="settings">
         /// The API client settings for specifying a proxy domain,
         /// or <see langword="null"/> to attempt to use the <see cref="BlockadeLabsClientSettings.Default"/>,
         /// potentially loading from environment vars or from a config file.
@@ -29,7 +29,7 @@ namespace BlockadeLabsSDK
         /// This internal HttpClient is disposed of when BlockadeLabsClient is disposed of.
         /// If you provide an external HttpClient instance to BlockadeLabsClient, you are responsible for managing its disposal.
         /// </remarks>
-        public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsClientSettings clientSettings = null, HttpClient httpClient = null)
+        public BlockadeLabsClient(BlockadeLabsAuthentication authentication = null, BlockadeLabsClientSettings settings = null, HttpClient httpClient = null)
         {
             BlockadeLabsAuthentication = authentication ?? BlockadeLabsAuthentication.Default;
             BlockadeLabsClientSettings = clientSettings ?? BlockadeLabsClientSettings.Default;
@@ -92,7 +92,7 @@ namespace BlockadeLabsSDK
         /// </summary>
         public BlockadeLabsAuthentication BlockadeLabsAuthentication { get; }
 
-        internal BlockadeLabsClientSettings BlockadeLabsClientSettings { get; }
+        internal BlockadeLabsClientSettings BlockadeLabsSettings { get; }
 
         /// <summary>
         /// Enables or disables debugging for all endpoints.
