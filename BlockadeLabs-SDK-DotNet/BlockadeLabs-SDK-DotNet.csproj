@@ -31,7 +31,7 @@ Version 2.0.0
 - Removed SkyboxInfo implicit string operator
 - GenerateSkyboxAsync and ExportSkyboxAsync pollingInterval type changed from int? to float?
 - Fixed SkyboxRequest.ControlImage uploads
-- Fixed SkyboxStyles not being returned correctly based on choosen SkyboxModel
+- Fixed SkyboxStyles not being returned correctly based on chosen SkyboxModel
 - Updated UnitTests
 Version 1.0.1
 - Updated package icon and docs
