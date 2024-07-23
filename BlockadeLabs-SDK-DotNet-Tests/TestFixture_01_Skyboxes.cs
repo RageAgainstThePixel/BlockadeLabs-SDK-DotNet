@@ -251,7 +251,7 @@ namespace BlockadeLabsSDK.Tests
         public async Task Test_07_DeleteSkybox()
         {
             Assert.IsNotNull(BlockadeLabsClient.SkyboxEndpoint);
-            var history = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxHistoryAsync(new SkyboxHistoryParameters { StatusFilter = Status.Abort });
+            var history = await BlockadeLabsClient.SkyboxEndpoint.GetSkyboxHistoryAsync(new HistorySearchQueryParameters { StatusFilter = Status.Abort });
             Assert.IsNotNull(history);
 
             foreach (var skybox in history.Skyboxes)

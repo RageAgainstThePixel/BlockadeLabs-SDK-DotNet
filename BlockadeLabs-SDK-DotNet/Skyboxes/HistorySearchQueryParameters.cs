@@ -1,6 +1,6 @@
 ﻿namespace BlockadeLabsSDK
 {
-    public sealed class SkyboxHistoryParameters
+    public sealed class HistorySearchQueryParameters
     {
         /// <summary>
         /// Filter by status.<br/>

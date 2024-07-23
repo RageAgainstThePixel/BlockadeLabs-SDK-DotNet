@@ -27,6 +27,7 @@
 Version 2.0.0
 - Renamed BlockadeLabsSettings to BlockadeLabsClientSettings
 - Renamed BlockadeLabsSettingsInfo to BlockadeLabsClientSettingsInfo
+- Renamed SkyboxHistoryParameters to HistorySearchQueryParameters
 - Removed SkyboxInfo implicit string operator
 - GenerateSkyboxAsync and ExportSkyboxAsync pollingInterval type changed from int? to float?
 - Fixed SkyboxRequest.ControlImage uploads
