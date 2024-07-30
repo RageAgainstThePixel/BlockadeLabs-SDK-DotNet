@@ -119,8 +119,6 @@ namespace BlockadeLabsSDK
 
         public static implicit operator int(SkyboxInfo info) => info.Id;
 
-        public static implicit operator string(SkyboxInfo info) => info?.ToString();
-
         public override string ToString() => JsonSerializer.Serialize(this, BlockadeLabsClient.JsonSerializationOptions);
     }
 }

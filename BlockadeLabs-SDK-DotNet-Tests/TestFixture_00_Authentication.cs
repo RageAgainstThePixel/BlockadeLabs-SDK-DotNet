@@ -121,7 +121,7 @@ namespace BlockadeLabsSDK.Tests
         public void Test_12_CustomDomainConfigurationSettings()
         {
             var auth = new BlockadeLabsAuthentication("customIssuedToken");
-            var settings = new BlockadeLabsSettings(domain: "api.your-custom-domain.com");
+            var settings = new BlockadeLabsClientSettings(domain: "api.your-custom-domain.com");
             var api = new BlockadeLabsClient(auth, settings);
             Console.WriteLine(api.BlockadeLabsSettings.BaseRequest);
             Console.WriteLine(api.BlockadeLabsSettings.BaseRequestUrlFormat);
@@ -136,7 +136,7 @@ namespace BlockadeLabsSDK.Tests
             }
 
 
-            BlockadeLabsSettings.Default = null;
+            BlockadeLabsClientSettings.Default = null;
             BlockadeLabsAuthentication.Default = null;
         }
     }

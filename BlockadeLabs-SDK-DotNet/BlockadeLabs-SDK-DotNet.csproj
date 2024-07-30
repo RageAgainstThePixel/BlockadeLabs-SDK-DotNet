@@ -22,8 +22,17 @@
     <SignAssembly>false</SignAssembly>
     <IncludeSymbols>true</IncludeSymbols>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Version>1.0.1</Version>
+    <Version>2.0.0</Version>
     <ReleaseNotes>
+Version 2.0.0
+- Renamed BlockadeLabsSettings to BlockadeLabsClientSettings
+- Renamed BlockadeLabsSettingsInfo to BlockadeLabsClientSettingsInfo
+- Renamed SkyboxHistoryParameters to HistorySearchQueryParameters
+- Removed SkyboxInfo implicit string operator
+- GenerateSkyboxAsync and ExportSkyboxAsync pollingInterval type changed from int? to float?
+- Fixed SkyboxRequest.ControlImage uploads
+- Fixed SkyboxStyles not being returned correctly based on chosen SkyboxModel
+- Updated UnitTests
 Version 1.0.1
 - Updated package icon and docs
 Version 1.0.0
