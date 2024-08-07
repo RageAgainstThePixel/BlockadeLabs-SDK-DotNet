@@ -18,7 +18,7 @@ Install-Package BlockadeLabs-SDK-DotNet-Proxy
 
 Using either the [BlockadeLabs-SDK-DotNet](https://github.com/RageAgainstThePixel/BlockadeLabs-SDK-DotNet) or [com.rest.blockadelabs](https://github.com/RageAgainstThePixel/com.rest.blockadelabs) packages directly in your front-end app may expose your API keys and other sensitive information. To mitigate this risk, it is recommended to set up an intermediate API that makes requests to BlockadeLabs on behalf of your front-end app. This library can be utilized for both front-end and intermediary host configurations, ensuring secure communication with the BlockadeLabs API.
 
-#### Front End Example
+### Front End Example
 
 In the front end example, you will need to securely authenticate your users using your preferred OAuth provider. Once the user is authenticated, exchange your custom auth token with your API key on the backend.
 
