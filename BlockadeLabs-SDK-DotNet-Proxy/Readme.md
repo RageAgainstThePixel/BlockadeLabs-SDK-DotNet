@@ -41,7 +41,7 @@ using var api = new BlockadeLabsClient(auth, settings);
 
 This setup allows your front end application to securely communicate with your backend that will be using the BlockadeLabs-SDK-DotNet-Proxy, which then forwards requests to the BlockadeLabs API. This ensures that your BlockadeLabs API keys and other sensitive information remain secure throughout the process.
 
-#### Back End Example
+### Back End Example
 
 In this example, we demonstrate how to set up and use `BlockadeLabsProxy` in a new ASP.NET Core web app. The proxy server will handle authentication and forward requests to the BlockadeLabs API, ensuring that your API keys and other sensitive information remain secure.
 
